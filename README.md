@@ -47,6 +47,7 @@ Seamlessly manage different physical NFC hardware:
 - Composer
 - Node.js & NPM
 - Google Maps API Key
+- Strip Keys
 
 ### Installation
 
