@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --brand-blue: #01a0ff;
+        --brand-blue-dark: #142d63;
+        --brand-gradient: linear-gradient(135deg, #01a0ff 0%, #0076ff 100%);
+        --premium-shadow:
+            0 10px 25px -5px rgba(0, 0, 0, 0.1),
+            0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@layer components {
+    .premium-card {
+        @apply bg-white rounded-2xl border border-gray-100 shadow-xl transition-all duration-300;
+    }
+
+    .premium-card:hover {
+        @apply shadow-2xl translate-y-[-2px];
+    }
+
+    .premium-shadow {
+        box-shadow: var(--premium-shadow);
+    }
+
+    /* Page Transitions */
+    .page-wrapper {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Skeleton Loaders */
+    .skeleton {
+        background: linear-gradient(
+            90deg,
+            #f0f3f8 25%,
+            #e2e8f0 50%,
+            #f0f3f8 75%
+        );
+        background-size: 200% 100%;
+        animation: skeleton-loading 1.5s infinite;
+        border-radius: 0.75rem;
+    }
+
+    @keyframes skeleton-loading {
+        0% {
+            background-position: 200% 0;
+        }
+        100% {
+            background-position: -200% 0;
+        }
+    }
+
+    .btn-premium {
+        @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold transition-all duration-200 transform shadow-lg active:scale-95;
+    }
+
+    .btn-premium-blue {
+        @apply btn-premium bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800;
+    }
+
+    .btn-premium-outline {
+        @apply btn-premium border-2 border-blue-500 text-blue-600 hover:bg-blue-50;
+    }
+}
+
+/* Custom Scrollbar for Premium Feel */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-50;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full hover:bg-gray-400 transition-colors;
+}
